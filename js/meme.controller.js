@@ -23,6 +23,5 @@ function updateText(value) {
     setLineTxt(value)
     showText()
     renderMeme()
-
 }
 
