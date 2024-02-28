@@ -3,19 +3,23 @@
 let gCanvas
 let gCtx
 
-var gImgs = [{ id: 0, url: '', keywords: [] }]
+var gImgs = [
+    { id: 1, url: 'img/1.png', keywords: ['sleepy', 'tired'] },
+    { id: 2, url: 'img/2.png', keywords: ['curious', 'alert'] },
+    { id: 3, url: 'img/3.png', keywords: ['tired', 'angry'] },
+]
 
 var gMeme = {
-    selectedImgId: null,
+    selectedImgId: 1,
     selectedLineIdx: null,
     lines: [{
-        txt: '',
-        size: 50,
+        txt: 'Default text',
+        size: 30,
         color: 'red',
     }]
 }
 
-var gKeywordSearchCountMap = { 'funny': 0, 'cat': 0, 'angry': 0 }
+var gKeywordSearchCountMap = { 'funny': 0, 'tired': 0, 'angry': 0 }
 
 function getCanvas() {
     gCanvas = document.querySelector('canvas')
@@ -23,12 +27,7 @@ function getCanvas() {
 }
 
 function getMeme() {
-    const memeImg = new Image()
-    memeImg.src = `img/${2}.png`
-    memeImg.onload = () => {
-        gCtx.drawImage(memeImg, 0, 0, gCanvas.width, gCanvas.height)
-        showText()
-    }
+    return gMeme
 }
 
 function showText() {

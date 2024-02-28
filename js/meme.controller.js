@@ -17,7 +17,14 @@ function showEditor() {
 }
 
 function renderMeme() {
-    getMeme()
+    const meme = getMeme()
+
+    const img = new Image()
+    img.src = `img/${meme.selectedImgId}.png`
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+        showText()
+    }
 }
 
 function updateText(value) {
