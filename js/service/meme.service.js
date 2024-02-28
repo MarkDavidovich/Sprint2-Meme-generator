@@ -10,7 +10,7 @@ var gMeme = {
     selectedLineIdx: null,
     lines: [{
         txt: '',
-        size: 20,
+        size: 50,
         color: 'red',
     }]
 }
@@ -22,27 +22,26 @@ function getCanvas() {
     gCtx = gCanvas.getContext('2d')
 }
 
-// function getMeme(num) {
-
-//     const memeImg = new Image()
-//     memeImg.src = `img/${num}.png`
-
-//     memeImg.onload = () => {
-//     }
-//     return memeImg
-
-//     //this doesn't work
-// }
+function getMeme() {
+    const memeImg = new Image()
+    const randNum = getRandomIntInclusive(1, 3)
+    memeImg.src = `img/${randNum}.png`
+    memeImg.onload = () => {
+        gCtx.drawImage(memeImg, 0, 0, gCanvas.width, gCanvas.height)
+        showText()
+    }
+}
 
 function showText() {
-    gMeme.lines[0].txt = 'Hello'
+    gMeme.lines[0].txt = 'Hello mortal' //placeholder text
 
     gMeme.lines.forEach(line => {
         gCtx.fillStyle = line.color
         gCtx.font = `${line.size}px Arial`
-        gCtx.fillText(line.txt, 20, 30)
+        gCtx.fillText(line.txt, 50, 50)
     })
 }
+
 // function setUpImages(numOfImages) {
 //     for (let i = 1; i <= numOfImages; i++) {
 //         gImgs.push({
@@ -51,4 +50,5 @@ function showText() {
 //             keywords: `keywords_${i}`
 //         })
 //     }
+// //might be of use later
 // }

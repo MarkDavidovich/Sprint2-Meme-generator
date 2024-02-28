@@ -16,15 +16,5 @@ function showEditor() {
 }
 
 function renderMeme() {
-    const memeImg = new Image()
-    memeImg.src = 'img/1.png'
-    memeImg.onload = () => {
-        gCtx.drawImage(memeImg, 0, 0, gCanvas.width, gCanvas.height)
-        // gCtx.font = "50px serif"
-        // gCtx.fillText('Hello', 50, 90)
-        showText()
-    }
-
-    //need to find a way to MVC this
-
+    getMeme()
 }
