@@ -92,3 +92,11 @@ function switchLine() {
         gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
     }
 }
+
+function removeLine() {
+    if (gMeme.selectedLineIdx !== null) {
+        gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+        gMeme.selectedLineIdx = Math.min(gMeme.selectedLineIdx, gMeme.lines.length - 1)
+        console.log(gMeme.lines.length)
+    }
+}

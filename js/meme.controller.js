@@ -39,7 +39,7 @@ function onDownloadMeme(elLink) {
 
 function onColorChange(ev) {
     const selectColor = ev.target.value
-    gMeme.lines[0].color = selectColor
+    gMeme.lines[0].color = selectColor // THIS NEEDS TO BE CHANGED ACCORDINGLY TO THE NEW LINE STUFF
     renderMeme()
 }
 
@@ -62,3 +62,8 @@ function onSwitchLine() {
     showText()
 }
 
+function onRemoveLine() {
+    removeLine()
+    showText()
+    renderMeme()
+}
