@@ -8,7 +8,7 @@
     <title>Meme Generator</title>
 </head>
 
-<body>
+<body onload="oninit()">
     <header>
         <h2>Meme Generator</h3>
             <section class="header-btns">
@@ -18,19 +18,32 @@
             </section>
     </header>
 
-
-    <section class="gallery-view">
-        <p>this is the gallery</p>
-    </section>
-
-
     <section class="editor-view">
+        <div class=canvas-container>
+            <canvas width="400" height="400">
+                <!-- add onclick and touch events -->
+            </canvas>
+        </div>
+        <div class="edit-panel">
+            <!-- add buttons etc -->
+        </div>
         <p>this is the editor</p>
     </section>
 
+    <section class="gallery-view">
+        <p>this is the gallery</p>
+        <!-- add images and set up onclick event to send them to canvas -->
+    </section>
+
+
+
+
 
     <footer>footer text</footer>
-    <script src="js/main.js"></script>
+    <script src="js/service/storage.service.js"></script>
+    <script src="js/service/util.service.js"></script>
+    <script src="js/service/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
 </body>
 
 </html>
