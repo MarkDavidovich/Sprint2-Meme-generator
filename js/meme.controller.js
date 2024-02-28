@@ -3,7 +3,6 @@
 function oninit() {
     getCanvas()
     renderMeme()
-    renderGallery()
 }
 
 function showGallery() {
