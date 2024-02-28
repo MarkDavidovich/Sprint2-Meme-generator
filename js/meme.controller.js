@@ -36,3 +36,9 @@ function updateText(value) {
 function onDownloadMeme(elLink) {
     downloadMeme(elLink)
 }
+
+function onColorChange(ev) {
+    const selectColor = ev.target.value
+    gMeme.lines[0].color = selectColor
+    console.log(gMeme)
+}

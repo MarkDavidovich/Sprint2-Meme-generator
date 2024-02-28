@@ -15,7 +15,7 @@ var gMeme = {
     lines: [{
         txt: 'Default text',
         size: 30,
-        color: 'red',
+        color: '#ff0000',
     }]
 }
 
