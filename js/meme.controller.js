@@ -33,3 +33,6 @@ function updateText(value) {
     renderMeme()
 }
 
+function onDownloadMeme(elLink) {
+    downloadMeme(elLink)
+}

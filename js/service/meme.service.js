@@ -42,6 +42,13 @@ function setLineTxt(txt) {
     gMeme.lines[0].txt = txt
 }
 
+function downloadMeme(elLink) {
+    elLink.href = '#'
+    const dataUrl = gCanvas.toDataURL()
+
+    elLink.href = dataUrl
+    elLink.download = 'dank-meme'
+}
 // function setUpImages(numOfImages) {
 //     for (let i = 1; i <= numOfImages; i++) {
 //         gImgs.push({

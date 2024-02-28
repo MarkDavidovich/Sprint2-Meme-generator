@@ -13,6 +13,6 @@ function renderGallery() {
 
 function onImgSelect(id) {
     imgChange(id)
-    showEditor()
     renderMeme()
+    showEditor()
 }
