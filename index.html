@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css" />
-    <title>Meme Generator</title>
+    <title>Cat Meme Generator</title>
 </head>
 
 <body onload="oninit()">
     <header>
-        <h2>Meme Generator</h3>
+        <h2>Cat Meme Generator</h3>
             <section class="header-btns">
                 <button class="gallery-btn" onclick="showGallery()">gallery</button>
                 <button class="editor-btn" onclick="showEditor()">editor</button>
@@ -31,7 +31,8 @@
         <p>this is the editor</p>
     </section>
 
-    <section class="gallery-view">
+    <section class="gallery-view" style="display:none">
+        <div class="imgs-container"></div>
         <p>this is the gallery</p>
         <!-- add images and set up onclick event to send them to canvas -->
     </section>
@@ -40,6 +41,7 @@
     <script src="js/service/storage.service.js"></script>
     <script src="js/service/util.service.js"></script>
     <script src="js/service/meme.service.js"></script>
+    <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
 </body>
 

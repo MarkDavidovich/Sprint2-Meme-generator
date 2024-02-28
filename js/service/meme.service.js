@@ -24,7 +24,6 @@ function getCanvas() {
 
 function getMeme() {
     const memeImg = new Image()
-    // const randNum = getRandomIntInclusive(1, 3) //RANDOMLY GENERATED IMAGES
     memeImg.src = `img/${2}.png`
     memeImg.onload = () => {
         gCtx.drawImage(memeImg, 0, 0, gCanvas.width, gCanvas.height)
@@ -49,8 +48,8 @@ function setLineTxt(txt) {
 //         gImgs.push({
 //             id: i,
 //             url: `img/${i}.png`,
-//             keywords: `keywords_${i}`
+//             keywords: `keywords_${i}` //placeholder for now
 //         })
 //     }
-// //might be of use later
+//     //might be of use later
 // }
