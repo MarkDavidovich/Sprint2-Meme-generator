@@ -16,7 +16,13 @@ var gMeme = {
         txt: 'Default text',
         size: 30,
         color: '#ff0000',
-    }]
+    },
+    {
+        txt: 'Default text',
+        size: 30,
+        color: '#ff0000',
+    }
+    ]
 }
 
 var gKeywordSearchCountMap = { 'funny': 0, 'tired': 0, 'angry': 0 }
@@ -31,15 +37,25 @@ function getMeme() {
 }
 
 function showText() {
-    gMeme.lines.forEach(line => {
+    gMeme.lines.forEach((line, index) => {
         gCtx.fillStyle = line.color
         gCtx.font = `${line.size}px Arial`
-        gCtx.fillText(line.txt, 50, 50)
+        gCtx.fillText(line.txt, 50, 50 + index * 50)
+
+        if (index === gMeme.selectedLineIdx) {
+            gCtx.strokeStyle = 'rgba(255, 0, 0, 0.8)'
+            gCtx.lineWidth = 2
+            gCtx.strokeRect(48, 50 + index * 50 - line.size, gCtx.measureText(line.txt).width + 5, line.size + 5)
+        }
     })
 }
 
 function setLineTxt(txt) {
-    gMeme.lines[0].txt = txt
+    // gMeme.lines[0].txt = txt
+    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+    if (selectedLine != undefined) {
+        selectedLine.txt = txt
+    }
 }
 
 function downloadMeme(elLink) {
@@ -49,13 +65,30 @@ function downloadMeme(elLink) {
     elLink.href = dataUrl
     elLink.download = 'dank-meme'
 }
-// function setUpImages(numOfImages) {
-//     for (let i = 1; i <= numOfImages; i++) {
-//         gImgs.push({
-//             id: i,
-//             url: `img/${i}.png`,
-//             keywords: `keywords_${i}` //placeholder for now
-//         })
-//     }
-//     //might be of use later
-// }
+
+function adjustFontSize(delta) {
+    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+    if (selectedLine) {
+        if ((selectedLine.size < 10 && delta < 0) || (selectedLine.size > 70 && delta > 0)) return
+        selectedLine.size += delta
+    }
+}
+
+
+function addLine() {
+    const newLine = {
+        txt: 'NEW LINE',
+        size: 30,
+        color: '#ff0000'
+    }
+
+    gMeme.lines.push(newLine)
+
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function switchLine() {
+    if (gMeme.lines.length > 1) {
+        gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
+    }
+}

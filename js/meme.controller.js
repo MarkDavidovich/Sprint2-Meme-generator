@@ -40,5 +40,25 @@ function onDownloadMeme(elLink) {
 function onColorChange(ev) {
     const selectColor = ev.target.value
     gMeme.lines[0].color = selectColor
-    console.log(gMeme)
+    renderMeme()
 }
+
+function onAdjustFontSize(delta) {
+    adjustFontSize(delta)
+    showText()
+    renderMeme()
+}
+
+
+function onAddLine() {
+    addLine()
+    renderMeme()
+    showText()
+}
+
+function onSwitchLine() {
+    switchLine()
+    renderMeme()
+    showText()
+}
+

@@ -25,9 +25,13 @@
             </canvas>
         </div>
         <div class="edit-panel">
-            <input type="text" oninput=updateText(this.value) placeholder="Enter text" />
+            <input class="input-field" type="text" oninput=updateText(this.value) placeholder="Enter text" />
             <a href="#" onclick="onDownloadMeme(this)">download</a>
             <input type="color" value="#ff0000" onchange="onColorChange(event)" />
+            <button onclick="onAdjustFontSize(3)">increase font size</button>
+            <button onclick="onAdjustFontSize(-3)">decrease font size</button>
+            <button onclick="onAddLine()">add line</button>
+            <button onclick="onSwitchLine()">switch line</button>
             <!-- more buttons -->
         </div>
         <p>this is the editor</p>
