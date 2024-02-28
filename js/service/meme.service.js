@@ -49,8 +49,8 @@ function setLineTxt(txt) {
 //         gImgs.push({
 //             id: i,
 //             url: `img/${i}.png`,
-//             keywords: `keywords_${i}`
+//             keywords: `keywords_${i}` //placeholder for now
 //         })
 //     }
-// //might be of use later
+//     //might be of use later
 // }

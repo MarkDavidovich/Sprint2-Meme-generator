@@ -3,6 +3,7 @@
 function oninit() {
     getCanvas()
     renderMeme()
+    renderGallery()
 }
 
 function showGallery() {
@@ -24,3 +25,4 @@ function updateText(value) {
     showText()
     renderMeme()
 }
+
