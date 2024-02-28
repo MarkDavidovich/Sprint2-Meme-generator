@@ -18,3 +18,9 @@ function showEditor() {
 function renderMeme() {
     getMeme()
 }
+
+function updateText(value) {
+    setLineTxt(value)
+    showText()
+    renderMeme()
+}

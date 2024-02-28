@@ -21,11 +21,12 @@
     <section class="editor-view">
         <div class=canvas-container>
             <canvas width="400" height="400">
-                <!-- add onclick and touch events -->
+                <!-- add onclick/touch events -->
             </canvas>
         </div>
         <div class="edit-panel">
-            <!-- add buttons etc -->
+            <input type="text" oninput=updateText(this.value) placeholder="Enter text">
+            <!-- more buttons -->
         </div>
         <p>this is the editor</p>
     </section>

@@ -24,8 +24,8 @@ function getCanvas() {
 
 function getMeme() {
     const memeImg = new Image()
-    const randNum = getRandomIntInclusive(1, 3)
-    memeImg.src = `img/${randNum}.png`
+    // const randNum = getRandomIntInclusive(1, 3) //RANDOMLY GENERATED IMAGES
+    memeImg.src = `img/${2}.png`
     memeImg.onload = () => {
         gCtx.drawImage(memeImg, 0, 0, gCanvas.width, gCanvas.height)
         showText()
@@ -33,13 +33,15 @@ function getMeme() {
 }
 
 function showText() {
-    gMeme.lines[0].txt = 'Hello mortal' //placeholder text
-
     gMeme.lines.forEach(line => {
         gCtx.fillStyle = line.color
         gCtx.font = `${line.size}px Arial`
         gCtx.fillText(line.txt, 50, 50)
     })
+}
+
+function setLineTxt(txt) {
+    gMeme.lines[0].txt = txt
 }
 
 // function setUpImages(numOfImages) {
