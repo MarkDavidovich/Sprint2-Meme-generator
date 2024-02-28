@@ -8,9 +8,8 @@ function renderGallery() {
 
 
     for (let i = 1; i <= NUM_OF_IMAGES; i++) { // MIGHT NEED TO CHANGE THE CONST USAGE HERE
-        strHTML += `<img src="/img/${i}.png" alt="cat ${i}" onclick="onImgSelect(event)">`
+        strHTML += `<img src="img/${i}.png" alt="cat ${i}" onclick="onImgSelect(event)">`
     }
     elGallery.innerHTML = strHTML
-    elGallery.style.display = 'block'
 }
 
