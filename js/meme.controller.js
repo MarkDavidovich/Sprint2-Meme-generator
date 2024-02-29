@@ -31,6 +31,7 @@ function updateText(value) {
     setLineTxt(value)
     showText()
     renderMeme()
+    updateUI()
 }
 
 function onDownloadMeme(elLink) {
@@ -57,17 +58,19 @@ function onAddLine() {
     addLine()
     renderMeme()
     showText()
+    updateUI()
 }
 
 function onSwitchLine() {
     switchLine()
-    updateUI()
     renderMeme()
     showText()
+    updateUI()
 }
 
 function onRemoveLine() {
     removeLine()
-    showText()
     renderMeme()
+    showText()
+    updateUI()
 }
