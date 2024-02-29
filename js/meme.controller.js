@@ -38,9 +38,12 @@ function onDownloadMeme(elLink) {
 }
 
 function onColorChange(ev) {
-    const selectColor = ev.target.value
-    gMeme.lines[0].color = selectColor // THIS NEEDS TO BE CHANGED ACCORDINGLY TO THE NEW LINE STUFF
-    renderMeme()
+    const selectedLine = getSelectedLine()
+    if (selectedLine) {
+        selectedLine.color = ev.target.value
+        showText()
+        renderMeme()
+    }
 }
 
 function onAdjustFontSize(delta) {
@@ -58,6 +61,7 @@ function onAddLine() {
 
 function onSwitchLine() {
     switchLine()
+    updateUI()
     renderMeme()
     showText()
 }

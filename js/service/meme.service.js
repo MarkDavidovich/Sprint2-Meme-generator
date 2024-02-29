@@ -40,7 +40,9 @@ function showText() {
     gMeme.lines.forEach((line, index) => {
         gCtx.fillStyle = line.color
         gCtx.font = `${line.size}px Arial`
-        gCtx.fillText(line.txt, 50, 50 + index * 50)
+
+        const y = 50 + index * 50
+        gCtx.fillText(line.txt, 50, y)
 
         if (index === gMeme.selectedLineIdx) {
             gCtx.strokeStyle = 'rgba(255, 0, 0, 0.8)'
@@ -52,7 +54,7 @@ function showText() {
 
 function setLineTxt(txt) {
     // gMeme.lines[0].txt = txt
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+    const selectedLine = getSelectedLine()
     if (selectedLine != undefined) {
         selectedLine.txt = txt
     }
@@ -67,7 +69,7 @@ function downloadMeme(elLink) {
 }
 
 function adjustFontSize(delta) {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+    const selectedLine = getSelectedLine()
     if (selectedLine) {
         if ((selectedLine.size < 10 && delta < 0) || (selectedLine.size > 70 && delta > 0)) return
         selectedLine.size += delta
@@ -99,4 +101,27 @@ function removeLine() {
         gMeme.selectedLineIdx = Math.min(gMeme.selectedLineIdx, gMeme.lines.length - 1)
         console.log(gMeme.lines.length)
     }
+}
+
+function updateUI() {
+    const selectedLine = getSelectedLine()
+    if (selectedLine) {
+        document.querySelector('.input-field').value = selectedLine.txt
+
+        document.querySelector('.color-picker').value = selectedLine.color
+    }
+}
+
+function updateText(value) {
+    const selectedLine = getSelectedLine()
+    if (selectedLine) {
+        selectedLine.txt = value
+        showText()
+        renderMeme()
+        updateUI()
+    }
+}
+
+function getSelectedLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
 }
