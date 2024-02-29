@@ -83,21 +83,6 @@ function addLine() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
-// function addLine() {
-//     const newLine = {
-//         txt: 'new line',
-//         size: 30,
-//         color: '#ff0000',
-//         x: 50,
-//         y: 50,
-//         width: 0,
-//     }
-
-//     gMeme.lines.push(newLine)
-//     gMeme.selectedLineIdx = gMeme.lines.length - 1
-
-// }
-
 function calculateY() {
     const lineSpacing = 50
     const lastLine = gMeme.lines[gMeme.lines.length - 1]
@@ -114,10 +99,6 @@ function switchLine() {
 function removeLine() {
     if (gMeme.selectedLineIdx !== null) {
         gMeme.lines.splice(gMeme.selectedLineIdx, 1)
-
-        // gMeme.lines.forEach((line, index) => {
-        //     line.y = 50 + index * 50;
-        // })
 
         gMeme.selectedLineIdx = Math.min(gMeme.selectedLineIdx, gMeme.lines.length - 1)
         console.log(gMeme.lines.length)
