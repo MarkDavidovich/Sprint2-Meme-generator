@@ -1,23 +1,104 @@
 * {
     box-sizing: border-box;
+    font-family: 'Press Start 2P';
 }
 
 body {
+    margin: 0;
+    padding: 0;
     height: 50vw;
+    background-color: rgb(72, 74, 156);
 }
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: lightcoral;
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
 }
+
+.header-btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.header-btn {
+    background-color: rgb(72, 74, 156);
+    color: white;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+}
+
+
+button:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.panel-btn {
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.editor-view {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.canvas-container {
+    width: 50%
+}
+
+canvas {
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.edit-panel {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: minmax(50px, auto);
+    padding: 10px;
+    border: 5px solid black;
+    /* width: max-content */
+    width: 40%
+}
+
+.search-field,
+.input-field {
+    background-color: rgb(132, 133, 196);
+    padding: 1.1em;
+    width: 100%;
+}
+
 
 footer {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    place-content: center;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
     bottom: 0;
-    left: 0;
+    width: 100%;
 }
+
+footer p {
+    margin: 0;
+}
+
+/* 1000 px turn main display into rows */

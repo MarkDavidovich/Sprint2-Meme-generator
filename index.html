@@ -4,41 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <link rel="stylesheet" href="css/editor.css" />
     <link rel="stylesheet" href="css/gallery.css" />
     <title>Cat Meme Generator</title>
 </head>
 
 <body onload="oninit()">
-    <header>
+    <nav>
         <h2>Cat Meme Generator</h3>
             <section class="header-btns">
-                <button class="gallery-btn" onclick="showGallery()">gallery</button>
-                <button class="editor-btn" onclick="showEditor()">editor</button>
-                <button class="about-btn">about</button>
+                <button class="header-btn gallery-btn" onclick="showGallery()">gallery</button>
+                <button class="header-btn editor-btn" onclick="showEditor()">editor</button>
+                <!-- <button class="header-btn about-btn">about</button> -->
             </section>
-    </header>
+    </nav>
 
     <section class="editor-view">
         <div class=canvas-container>
-            <canvas width="400" height="400">
+            <canvas width="550" height="550">
                 <!-- add onclick/touch events -->
             </canvas>
         </div>
         <div class="edit-panel">
-            <input type="text" class="input-field" oninput=updateText(this.value) placeholder="Enter text" />
-            <a href="#" onclick="onDownloadMeme(this)">download</a>
-            <input type="color" class="color-picker" value="#ff0000" onchange="onColorChange(event)" />
-            <button onclick="onAdjustFontSize(3)">increase font size</button>
-            <button onclick="onAdjustFontSize(-3)">decrease font size</button>
-            <button onclick="onAddLine()">add line</button>
-            <button onclick="onSwitchLine()">switch line</button>
-            <button onclick="onRemoveLine()">remove line</button>
+            <div class="line-settings">
+                <button class="panel-btn" onclick="onAddLine()">
+                    <img src="img/icons/add-line.png" alt="add line" />
+                </button>
+                <button class="panel-btn" onclick="onSwitchLine()">
+                    <img src="img/icons/switch-line.png" alt="switch line" />
+                </button>
+                <button class="panel-btn" onclick="onRemoveLine()">
+                    <img src="img/icons/delete-line.png" alt="remove line" />
+                </button>
+            </div>
+            <input type="text" class="panel-btn input-field" oninput=updateText(this.value) placeholder="Enter text" />
+            <div class="text-settings">
+                <button class="panel-btn" onclick="onAdjustFontSize(3)">
+                    <img src="img/icons/font-size+.png" alt="increase font size" />
+                </button>
+                <button class="panel-btn" onclick="onAdjustFontSize(-3)">
+                    <img src="img/icons/font-size-.png" alt="decrease font size" />
+                </button>
+                <input type="color" class="panel-btn color-picker" src="img/icons/color-picker.png" value="#000000"
+                    onchange="onColorChange(event)" />
+            </div>
+            <a class="panel-btn" href="#" onclick="onDownloadMeme(this)"> <img src="img/icons/donwload.png" /></a>
             <!-- more buttons -->
         </div>
     </section>
 
     <section class="gallery-view" style="display:none">
+        <div class="search-elements">
+            <input type="text" class="search-field" placeholder="search text" />
+            <span>Search tags go here</span>
+        </div>
         <div class="imgs-container"></div>
         <!-- add images and set up onclick event to send them to canvas -->
     </section>

@@ -71,9 +71,9 @@ function adjustFontSize(delta) {
 
 function addLine() {
     const newLine = {
-        txt: 'NEW LINE',
+        txt: '',
         size: 30,
-        color: '#ff0000',
+        color: '#000000',
         x: 50,
         y: calculateY(),
         width: 0,
