@@ -23,8 +23,6 @@ function getCanvas() {
     gCtx = gCanvas.getContext('2d')
 
     gCanvas.addEventListener('click', onCanvasClick)
-    const heightRatio = 1.5
-    gCanvas.height = gCanvas.width * heightRatio
 }
 
 function getMeme() {
