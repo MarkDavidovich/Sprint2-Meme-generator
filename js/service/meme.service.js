@@ -4,12 +4,6 @@ let gCanvas
 let gCtx
 let gIdx = 0
 
-var gImgs = [
-    { id: 1, url: 'img/1.png', keywords: ['sleepy', 'tired'] },
-    { id: 2, url: 'img/2.png', keywords: ['curious', 'alert'] },
-    { id: 3, url: 'img/3.png', keywords: ['tired', 'angry'] },
-]
-
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: null,

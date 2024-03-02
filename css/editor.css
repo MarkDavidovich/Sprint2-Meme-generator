@@ -95,8 +95,10 @@ canvas {
 
 .line-settings,
 .text-settings {
-    display: flex;
+    /* display: flex;
+    flex-direction: row;
     gap: 10px;
+    max-width: max-content; */
 }
 
 .input-field {

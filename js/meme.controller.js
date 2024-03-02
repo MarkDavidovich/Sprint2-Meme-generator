@@ -88,6 +88,7 @@ function onTextAlign(dir) {
     textAlign(dir)
     showText()
     renderMeme()
+
 }
 
 function onMoveLine(dir) {
