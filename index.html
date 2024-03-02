@@ -30,6 +30,7 @@
             </canvas>
         </div>
         <div class="edit-panel">
+            <input type="text" class="panel-btn input-field" oninput=updateText(this.value) placeholder="Enter text" />
             <div class="line-settings">
                 <button class="panel-btn" onclick="onAddLine()">
                     <img src="img/icons/add-line.png" alt="add line" />
@@ -47,7 +48,6 @@
                     <img src="img/icons/move-down.png" alt="move line down" />
                 </button>
             </div>
-            <input type="text" class="panel-btn input-field" oninput=updateText(this.value) placeholder="Enter text" />
             <div class="text-settings">
                 <button class="panel-btn" onclick="onAdjustFontSize(3)">
                     <img src="img/icons/font-size+.png" alt="increase font size" />
@@ -82,7 +82,9 @@
     <section class="gallery-view" style="display:none">
         <div class="search-elements">
             <input type="text" class="search-field" oninput="onSearchChange()" placeholder="search keywords" />
-            <span>Search tags go here</span>
+            <button onclick="onRandomMeme()">I'm flexible</button>
+            <p>Search tags go here</p>
+
         </div>
         <div class="imgs-container"></div>
         <!-- add images and set up onclick event to send them to canvas -->

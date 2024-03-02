@@ -29,3 +29,10 @@ function onSearchChange() {
 
     renderGallery();
 }
+
+function onRandomMeme() {
+    getRandomMeme()
+    renderMeme()
+    showText()
+    showEditor()
+}

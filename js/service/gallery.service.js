@@ -17,5 +17,34 @@ var gFilteredImgs = gImgs.slice()
 
 function imgChange(id) {
     gMeme.selectedImgId = id
+}
 
+function getRandomMeme() {
+
+    const randomImgIdx = getRandomIntInclusive(0, gImgs.length - 1)
+    const randomImg = gImgs[randomImgIdx]
+
+    gMeme.selectedImgId = randomImg.id
+
+    gMeme.lines = [{
+        txt: getRandomSentence(),
+        size: 50,
+        color: '#ffffff',
+        x: 50,
+        y: 50,
+        width: 0,
+        align: 'left',
+    }]
+
+}
+
+function getRandomSentence() {
+    const sentences = ['don\'t laugh, you\'re next',
+        'when there are no treats left',
+        'stay negative',
+        'when the front camera opens',
+        'when you shake the treat bag',
+        'my cat at 5 AM']
+
+    return sentences[Math.floor(Math.random() * sentences.length)]
 }

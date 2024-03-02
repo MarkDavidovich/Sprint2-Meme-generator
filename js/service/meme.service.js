@@ -214,3 +214,13 @@ function moveLine(dir) {
         selectedLine.y += moveLineBy
     }
 }
+
+function saveMeme(meme) {
+    const memes = loadMemes() || []
+    memes.push(meme)
+    saveToStorage('memes', meme)
+}
+
+function loadMemes() {
+    return loadFromStorage('memes') || []
+}
