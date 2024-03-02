@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/editor.css" />
     <link rel="stylesheet" href="css/gallery.css" />
     <title>Cat Meme Generator</title>
@@ -46,6 +49,19 @@
                 <button class="panel-btn" onclick="onAdjustFontSize(-3)">
                     <img src="img/icons/font-size-.png" alt="decrease font size" />
                 </button>
+                <select class="font-select" onchange="onFontChange()">
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Arial</option>
+                    <option value="">Add more</option>
+                    <!-- <option value="font4">font4</option>
+                    <option value="font5">font5</option> -->
+                </select>
+                <button class="panel-btn" onclick="onTextAlign('left')"><img src="img/icons/align-left.png"
+                        alt="text align left" /></button>
+                <button class="panel-btn" onclick="onTextAlign('center')"><img src="img/icons/align-center.png"
+                        alt="text align center" /></button>
+                <button class="panel-btn" onclick="onTextAlign('right')"><img src="img/icons/align-right.png"
+                        alt="text align right" /></button>
                 <input type="color" class="panel-btn color-picker" src="img/icons/color-picker.png" value="#ffffff"
                     onchange="onColorChange(event)" />
             </div>

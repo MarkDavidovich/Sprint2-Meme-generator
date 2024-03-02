@@ -74,3 +74,19 @@ function onRemoveLine() {
     showText()
     updateUI()
 }
+
+function onFontChange() {
+    const elFont = document.querySelector('.font-select')
+    const selectedFont = elFont.value;
+    fontChange(selectedFont)
+
+    showText()
+    renderMeme()
+}
+
+function onTextAlign(dir) {
+    textAlign(dir)
+    showText()
+    renderMeme()
+    console.log('aligned to', dir)
+}

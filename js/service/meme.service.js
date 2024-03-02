@@ -30,25 +30,43 @@ function getMeme() {
 }
 
 function showText() {
-    gMeme.lines.forEach((line, index) => {
-
+    gMeme.lines.forEach((line, idx) => {
         gCtx.fillStyle = line.color
         gCtx.strokeStyle = 'black'
         gCtx.lineWidth = 5
 
-        gCtx.font = `${line.size}px Impact`
+        gCtx.font = `${line.size}px ${line.font || 'Impact'}`
+        gCtx.textAlign = line.align || 'left'
 
-        gCtx.strokeText(line.txt, line.x, line.y)
-        gCtx.fillText(line.txt, line.x, line.y)
+        let x = line.x
 
-        if (index === gMeme.selectedLineIdx) {
-            gCtx.strokeStyle = 'rgba(255, 0, 0, 0.5)'
-            gCtx.lineWidth = 2
-            gCtx.strokeRect(line.x - 2, line.y - line.size, line.width + 5, line.size + 5)
+        gCtx.strokeText(line.txt, x, line.y)
+        gCtx.fillText(line.txt, x, line.y)
+
+
+        showOutline(line, idx, x)
+    })
+}
+
+function showOutline(line, idx, x) {
+    const textWidth = gCtx.measureText(line.txt).width;
+
+    if (idx === gMeme.selectedLineIdx) {
+        gCtx.strokeStyle = 'rgba(255, 0, 0, 0.8)'
+        gCtx.lineWidth = 1;
+
+        let outlineX = x;
+
+        if (line.align === 'center') {
+            outlineX = x - (textWidth / 2);
+        } else if (line.align === 'right') {
+            outlineX = x - textWidth;
         }
 
-        line.width = gCtx.measureText(line.txt).width
-    })
+        gCtx.strokeRect(outlineX - 2, line.y - line.size, textWidth + 5, line.size + 5)
+    }
+
+    line.width = textWidth;
 }
 
 function setLineTxt(txt) {
@@ -79,9 +97,10 @@ function addLine() {
         txt: '',
         size: 50,
         color: '#ffffff',
-        x: 50,
+        x: 30,
         y: calculateY(),
         width: 0,
+        align: 'left',
     }
 
     gMeme.lines.push(newLine)
@@ -89,7 +108,7 @@ function addLine() {
 }
 
 function calculateY() {
-    const lineSpacing = 50
+    const lineSpacing = 100
     const lastLine = gMeme.lines[gMeme.lines.length - 1]
     return lastLine ? lastLine.y + lineSpacing : 50
 
@@ -107,6 +126,10 @@ function removeLine() {
 
         gMeme.selectedLineIdx = Math.min(gMeme.selectedLineIdx, gMeme.lines.length - 1)
         console.log(gMeme.lines.length)
+
+        if (gMeme.lines.length === 0) {
+            document.querySelector('.input-field').value = null
+        }
     }
 }
 
@@ -134,8 +157,19 @@ function onCanvasClick(ev) {
 
     for (let idx = gMeme.lines.length - 1; idx >= 0; idx--) {
         const line = gMeme.lines[idx]
+
+        let x
+
+        if (line.align === 'left') {
+            x = line.x;
+        } else if (line.align === 'right') {
+            x = line.x - Math.abs(line.width);
+        } else {
+            x = line.x - line.width / 2;
+        }
+
         if (
-            mouseX >= line.x && mouseX <= line.x + line.width &&
+            mouseX >= x && mouseX <= x + line.width &&
             mouseY >= line.y - line.size && mouseY <= line.y
         ) {
             gMeme.selectedLineIdx = idx
@@ -156,4 +190,26 @@ function onCanvasClick(ev) {
 
 function getSelectedLine() {
     return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function fontChange(selectedFont) {
+    gMeme.lines.forEach(line => {
+        line.font = selectedFont;
+    });
+}
+
+function textAlign(dir) {
+    const selectedLine = getSelectedLine()
+
+    if (selectedLine) {
+        selectedLine.align = dir
+
+        if (dir === 'left') {
+            selectedLine.x = 50
+        } else if (dir === 'right') {
+            selectedLine.x = gCanvas.width - 50;
+        } else {
+            selectedLine.x = gCanvas.width / 2
+        }
+    }
 }
