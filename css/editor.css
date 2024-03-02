@@ -104,8 +104,6 @@ footer p {
     margin: 0;
 }
 
-/* 1000 px turn main display into rows */
-
 @media (max-width : 1000px) {
     .editor-view {
         justify-content: center;

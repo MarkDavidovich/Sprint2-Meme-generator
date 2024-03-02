@@ -31,13 +31,18 @@ function getMeme() {
 
 function showText() {
     gMeme.lines.forEach((line, index) => {
-        gCtx.fillStyle = line.color
-        gCtx.font = `${line.size}px Arial`
 
+        gCtx.fillStyle = line.color
+        gCtx.strokeStyle = 'black'
+        gCtx.lineWidth = 5
+
+        gCtx.font = `${line.size}px Impact`
+
+        gCtx.strokeText(line.txt, line.x, line.y)
         gCtx.fillText(line.txt, line.x, line.y)
 
         if (index === gMeme.selectedLineIdx) {
-            gCtx.strokeStyle = 'rgba(255, 0, 0, 0.8)'
+            gCtx.strokeStyle = 'rgba(255, 0, 0, 0.5)'
             gCtx.lineWidth = 2
             gCtx.strokeRect(line.x - 2, line.y - line.size, line.width + 5, line.size + 5)
         }
@@ -72,8 +77,8 @@ function adjustFontSize(delta) {
 function addLine() {
     const newLine = {
         txt: '',
-        size: 30,
-        color: '#000000',
+        size: 50,
+        color: '#ffffff',
         x: 50,
         y: calculateY(),
         width: 0,
