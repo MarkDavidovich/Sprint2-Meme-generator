@@ -13,6 +13,8 @@ var gImgs = [
     { id: 10, url: 'img/10.png', keywords: ['curious', 'small'] },
 ]
 
+var gFilteredImgs = gImgs.slice()
+
 function imgChange(id) {
     gMeme.selectedImgId = id
 
