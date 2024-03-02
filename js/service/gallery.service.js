@@ -11,6 +11,11 @@ var gImgs = [
     { id: 8, url: 'img/8.png', keywords: ['fighting', 'multiple'] },
     { id: 9, url: 'img/9.png', keywords: ['sad'] },
     { id: 10, url: 'img/10.png', keywords: ['curious', 'small'] },
+    { id: 11, url: 'img/11.png', keywords: ['curious', 'hungry'] },
+    { id: 12, url: 'img/12.png', keywords: ['tired', 'sad'] },
+    { id: 13, url: 'img/13.png', keywords: ['angry', 'sad'] },
+    { id: 14, url: 'img/14.png', keywords: ['fighting', 'multiple'] },
+    { id: 15, url: 'img/15.png', keywords: ['sad', 'tired'] },
 ]
 
 var gFilteredImgs = gImgs.slice()
@@ -42,7 +47,6 @@ function getRandomSentence() {
     const sentences = ['don\'t laugh, you\'re next',
         'when there are no treats left',
         'stay negative',
-        'when the front camera opens',
         'when you shake the treat bag',
         'my cat at 5 AM']
 

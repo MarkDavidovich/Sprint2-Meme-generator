@@ -9,11 +9,19 @@ function oninit() {
 function showGallery() {
     document.querySelector('.gallery-view').style.display = 'inline'
     document.querySelector('.editor-view').style.display = 'none'
+    document.querySelector('.saved-view').style.display = 'none'
 }
 
 function showEditor() {
     document.querySelector('.gallery-view').style.display = 'none'
     document.querySelector('.editor-view').style.display = 'flex'
+    document.querySelector('.saved-view').style.display = 'none'
+}
+
+function showSaved() {
+    document.querySelector('.gallery-view').style.display = 'none'
+    document.querySelector('.editor-view').style.display = 'none'
+    document.querySelector('.saved-view').style.display = 'inline'
 }
 
 function renderMeme() {
@@ -77,7 +85,7 @@ function onRemoveLine() {
 
 function onFontChange() {
     const elFont = document.querySelector('.font-select')
-    const selectedFont = elFont.value;
+    const selectedFont = elFont.value
     fontChange(selectedFont)
 
     showText()
@@ -95,4 +103,9 @@ function onMoveLine(dir) {
     moveLine(dir)
     showText()
     renderMeme()
+}
+
+function onSaveMeme() {
+    const meme = getMeme()
+    saveMeme(meme)
 }

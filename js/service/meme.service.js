@@ -42,24 +42,24 @@ function showText() {
 }
 
 function showOutline(line, idx, x) {
-    const textWidth = gCtx.measureText(line.txt).width;
+    const textWidth = gCtx.measureText(line.txt).width
 
     if (idx === gMeme.selectedLineIdx) {
         gCtx.strokeStyle = 'rgba(255, 0, 0, 0.8)'
-        gCtx.lineWidth = 1;
+        gCtx.lineWidth = 1
 
-        let outlineX = x;
+        let outlineX = x
 
         if (line.align === 'center') {
-            outlineX = x - (textWidth / 2);
+            outlineX = x - (textWidth / 2)
         } else if (line.align === 'right') {
-            outlineX = x - textWidth;
+            outlineX = x - textWidth
         }
 
         gCtx.strokeRect(outlineX - 2, line.y - line.size, textWidth + 5, line.size + 5)
     }
 
-    line.width = textWidth;
+    line.width = textWidth
 }
 
 function setLineTxt(txt) {
@@ -154,11 +154,11 @@ function onCanvasClick(ev) {
         let x
 
         if (line.align === 'left') {
-            x = line.x;
+            x = line.x
         } else if (line.align === 'right') {
-            x = line.x - Math.abs(line.width);
+            x = line.x - Math.abs(line.width)
         } else {
-            x = line.x - line.width / 2;
+            x = line.x - line.width / 2
         }
 
         if (
@@ -187,8 +187,8 @@ function getSelectedLine() {
 
 function fontChange(selectedFont) {
     gMeme.lines.forEach(line => {
-        line.font = selectedFont;
-    });
+        line.font = selectedFont
+    })
 }
 
 function textAlign(dir) {
@@ -200,7 +200,7 @@ function textAlign(dir) {
         if (dir === 'left') {
             selectedLine.x = 50
         } else if (dir === 'right') {
-            selectedLine.x = gCanvas.width - 50;
+            selectedLine.x = gCanvas.width - 50
         } else {
             selectedLine.x = gCanvas.width / 2
         }
@@ -213,14 +213,4 @@ function moveLine(dir) {
         const moveLineBy = 20 * dir
         selectedLine.y += moveLineBy
     }
-}
-
-function saveMeme(meme) {
-    const memes = loadMemes() || []
-    memes.push(meme)
-    saveToStorage('memes', meme)
-}
-
-function loadMemes() {
-    return loadFromStorage('memes') || []
 }

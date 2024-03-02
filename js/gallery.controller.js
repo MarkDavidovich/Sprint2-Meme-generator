@@ -16,7 +16,6 @@ function renderGallery() {
     elGallery.innerHTML = strHTML
 }
 
-
 function onImgSelect(id) {
     imgChange(id)
     renderMeme()
@@ -33,6 +32,5 @@ function onSearchChange() {
 function onRandomMeme() {
     getRandomMeme()
     renderMeme()
-    showText()
     showEditor()
 }

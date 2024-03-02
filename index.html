@@ -19,6 +19,7 @@
             <section class="header-btns">
                 <button class="header-btn gallery-btn" onclick="showGallery()">gallery</button>
                 <button class="header-btn editor-btn" onclick="showEditor()">editor</button>
+                <button class="header-btn saved-btn" onclick="showSaved()">saved</button>
                 <!-- <button class="header-btn about-btn">about</button> -->
             </section>
     </nav>
@@ -74,6 +75,7 @@
             </div>
             <div class="share-btns">
                 <a class="panel-btn" href="#" onclick="onDownloadMeme(this)"> <img src="img/icons/donwload.png" /></a>
+                <a class="panel-btn" href="#" onclick="onSaveMeme()"> <img src="img/icons/save.png" /></a>
             </div>
             <!-- more buttons -->
         </div>
@@ -83,13 +85,15 @@
         <div class="search-elements">
             <input type="text" class="search-field" oninput="onSearchChange()" placeholder="search keywords" />
             <button onclick="onRandomMeme()">I'm flexible</button>
-            <p>Search tags go here</p>
-
         </div>
         <div class="imgs-container"></div>
         <!-- add images and set up onclick event to send them to canvas -->
     </section>
 
+    <section class="saved-view" style="display:none">
+        <div class="imgs-container saved"></div>
+        <h1>No saved images here yet!</h1>
+    </section>
     <footer>by Mark.D</footer>
     <script src="js/service/storage.service.js"></script>
     <script src="js/service/util.service.js"></script>
