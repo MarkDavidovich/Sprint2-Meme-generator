@@ -40,6 +40,12 @@
                 <button class="panel-btn" onclick="onRemoveLine()">
                     <img src="img/icons/delete-line.png" alt="remove line" />
                 </button>
+                <button class="panel-btn" onclick="onMoveLine(-1)">
+                    <img src="img/icons/move-up.png" alt="move line up" />
+                </button>
+                <button class="panel-btn" onclick="onMoveLine(1)">
+                    <img src="img/icons/move-down.png" alt="move line down" />
+                </button>
             </div>
             <input type="text" class="panel-btn input-field" oninput=updateText(this.value) placeholder="Enter text" />
             <div class="text-settings">
@@ -65,7 +71,9 @@
                 <input type="color" class="panel-btn color-picker" src="img/icons/color-picker.png" value="#ffffff"
                     onchange="onColorChange(event)" />
             </div>
-            <a class="panel-btn" href="#" onclick="onDownloadMeme(this)"> <img src="img/icons/donwload.png" /></a>
+            <div class="share-btns">
+                <a class="panel-btn" href="#" onclick="onDownloadMeme(this)"> <img src="img/icons/donwload.png" /></a>
+            </div>
             <!-- more buttons -->
         </div>
     </section>

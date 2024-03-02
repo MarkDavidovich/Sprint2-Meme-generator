@@ -43,7 +43,6 @@ function showText() {
         gCtx.strokeText(line.txt, x, line.y)
         gCtx.fillText(line.txt, x, line.y)
 
-
         showOutline(line, idx, x)
     })
 }
@@ -211,5 +210,13 @@ function textAlign(dir) {
         } else {
             selectedLine.x = gCanvas.width / 2
         }
+    }
+}
+
+function moveLine(dir) {
+    const selectedLine = getSelectedLine()
+    if (selectedLine) {
+        const moveLineBy = 20 * dir
+        selectedLine.y += moveLineBy
     }
 }
