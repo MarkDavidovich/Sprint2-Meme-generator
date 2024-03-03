@@ -1,8 +1,7 @@
 'use strict'
-const MEME = 'savedMeme'
+const MEME_KEY = 'savedMeme'
 let gCanvas
 let gCtx
-let gIdx = 0
 
 var gMeme = {
     selectedImgId: 1,
@@ -217,16 +216,25 @@ function moveLine(dir) {
     }
 }
 
-function saveMeme() {
-    const savedMemes = loadFromStorage(MEME) || [];
-    savedMemes.push(gMeme);
-    saveToStorage(MEME, savedMemes);
+function saveMeme(meme) {
+    const savedMemes = loadFromStorage(MEME_KEY) || []
+    savedMemes.push(meme)
+    saveToStorage(MEME_KEY, savedMemes)
 }
 
-function renderSavedMemes() {
-    const savedMemes = JSON.parse(localStorage.getItem('savedMemes')) || [];
+function loadSavedMeme(imgId) {
+    const savedMemes = loadFromStorage(MEME_KEY) || []
+    const selectedMeme = savedMemes.find(meme => meme.selectedImgId === imgId)
 
-    savedMemes.forEach((savedMeme, index) => {
-
-    })
+    if (selectedMeme) {
+        gMeme = selectedMeme
+    }
 }
+
+function removeSavedMeme(imgId) {
+    const savedMemes = loadFromStorage(MEME_KEY) || []
+    const Idx = savedMemes.findIndex(meme => meme.selectedImgId === imgId)
+    savedMemes.splice(Idx, 1)
+    saveToStorage(MEME_KEY, savedMemes)
+}
+

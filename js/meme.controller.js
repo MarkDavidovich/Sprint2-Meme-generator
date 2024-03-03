@@ -22,6 +22,7 @@ function showSaved() {
     document.querySelector('.gallery-view').style.display = 'none'
     document.querySelector('.editor-view').style.display = 'none'
     document.querySelector('.saved-view').style.display = 'inline'
+    renderSavedMemes()
 }
 
 function renderMeme() {
@@ -33,6 +34,22 @@ function renderMeme() {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         showText()
     }
+}
+
+function renderSavedMemes() {
+    const savedMemes = loadFromStorage(MEME_KEY) || []
+    const elSavedGallery = document.querySelector('.imgs-container.saved')
+    let strHTML = ''
+
+    savedMemes.forEach((meme) => {
+        const idx = meme.selectedImgId
+        strHTML += `<div class="gallery-item">
+        <img class="gallery-img" src="img/${idx}.png" alt="image ${idx}" onclick="clickOnSaved(${idx})">
+        <button class="remove-saved-btn" onclick="clickOnRemove(${idx})"> <img src="img/icons/delete-line.png" alt="remove image" /></button>
+    </div>`
+    })
+
+    elSavedGallery.innerHTML = strHTML
 }
 
 function updateText(value) {
@@ -108,4 +125,15 @@ function onMoveLine(dir) {
 function onSaveMeme() {
     const meme = getMeme()
     saveMeme(meme)
+}
+
+function clickOnSaved(idx) {
+    loadSavedMeme(idx)
+    renderMeme()
+    showEditor()
+}
+
+function clickOnRemove(idx) {
+    removeSavedMeme(idx)
+    renderSavedMemes()
 }

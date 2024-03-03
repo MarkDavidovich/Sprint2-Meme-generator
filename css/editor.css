@@ -21,8 +21,7 @@ h2 {
 body {
     margin: 0;
     padding: 0;
-    height: 30vw;
-    width: 100vw;
+    height: 90%;
     background-color: var(--main-bg-color2);
 }
 
@@ -32,12 +31,12 @@ nav {
     color: white;
     padding: 10px;
     text-align: center;
+    height: 103px;
 }
 
 .header-btns {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
 }
 
 
@@ -75,10 +74,9 @@ label:hover {
 
 
 .editor-view {
-    display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding-block: 20px;
     gap: 5px;
 }
 
@@ -134,14 +132,32 @@ canvas {
     opacity: 0.7;
 }
 
+.gallery-item {
+    display: flex;
+    place-items: center;
+}
+
+.remove-saved-btn {
+    opacity: 0.5;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 0;
+}
+
+.remove-saved-btn:hover {
+    opacity: 1;
+}
+
+
 footer {
     position: fixed;
     background-color: var(--secondary-bg-color);
     color: var(--main-bg-color4);
-    text-align: center;
+    text-align: end;
     padding: 10px;
     bottom: 0;
     width: 100%;
+    z-index: -1;
 }
 
 footer p {
