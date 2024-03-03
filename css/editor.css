@@ -26,12 +26,14 @@ body {
 }
 
 nav {
+    display: flex;
+    flex-direction: column;
     background-color: var(--secondary-bg-color);
     width: 100%;
     color: white;
-    padding: 10px;
+    /* padding: 10px; */
     text-align: center;
-    height: 103px;
+    padding-left: calc(100vw - 100%);
 }
 
 .header-btns {
@@ -41,12 +43,17 @@ nav {
 
 
 .header-btn {
-    background-color: var(--main-bg-color2);
+    /* background-color: var(--main-bg-color2); */
+    background-color: var(--secondary-bg-color);
     color: whitesmoke;
     padding: 8px 16px;
     margin: 0 5px;
     border: none;
     cursor: pointer;
+}
+
+.active {
+    background-color: var(--main-bg-color2);
 }
 
 button {
@@ -71,9 +78,8 @@ label:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.7)
 }
 
-
-
 .editor-view {
+    display: flex;
     justify-content: space-around;
     align-items: center;
     padding-block: 20px;
@@ -132,22 +138,32 @@ canvas {
     opacity: 0.7;
 }
 
-.gallery-item {
-    display: flex;
-    place-items: center;
-}
-
 .remove-saved-btn {
     opacity: 0.5;
     transition: 0.3s;
-    position: absolute;
-    bottom: 0;
+    transform: translate(10px, -70px)
 }
 
 .remove-saved-btn:hover {
     opacity: 1;
 }
 
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    background-color: var(--secondary-bg-color);
+    color: whitesmoke;
+    padding: 5px;
+    font-size: 14px;
+    transition: opacity 0.5s;
+}
+
+.save-button:hover+.tooltip {
+    z-index: infinite;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 footer {
     position: fixed;
@@ -163,6 +179,7 @@ footer {
 footer p {
     margin: 0;
 }
+
 
 @media (max-width : 1000px) {
     .editor-view {

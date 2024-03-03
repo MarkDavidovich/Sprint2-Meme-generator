@@ -10,10 +10,13 @@
     gap: 10px;
     padding-top: 1em;
     padding-inline: 2em;
+    padding-bottom: 2em;
     margin: 0 auto;
+
 }
 
 .gallery-img {
+    position: relative;
     display: block;
     border: 5px solid black;
     width: 100%;

@@ -17,16 +17,16 @@
     <nav>
         <h2>Cat Meme Generator</h3>
             <section class="header-btns">
-                <button class="header-btn gallery-btn" onclick="showGallery()">gallery</button>
-                <button class="header-btn editor-btn" onclick="showEditor()">editor</button>
-                <button class="header-btn saved-btn" onclick="showSaved()">saved</button>
+                <button class="header-btn gallery-btn" onclick="showGallery(this)">gallery</button>
+                <button class="header-btn editor-btn" onclick="showEditor(this)">editor</button>
+                <button class="header-btn saved-btn" onclick="showSaved(this)">saved</button>
                 <!-- <button class="header-btn about-btn">about</button> -->
             </section>
     </nav>
 
     <section class="editor-view">
         <div class=canvas-container>
-            <canvas class="meme-canvas" width="750" height="750">
+            <canvas class="meme-canvas" width="700" height="700">
                 <!-- add onclick/touch events -->
             </canvas>
         </div>
@@ -79,6 +79,7 @@
             <div class="share-btns">
                 <a class="panel-btn" href="#" onclick="onDownloadMeme(this)"> <img src="img/icons/donwload.png" /></a>
                 <a class="panel-btn" href="#" onclick="onSaveMeme()"> <img src="img/icons/save.png" /></a>
+                <div class="tooltip">Meme saved!</div>
             </div>
             <!-- more buttons -->
         </div>
@@ -88,6 +89,9 @@
         <div class="search-elements">
             <input type="text" class="search-field" oninput="onSearchChange()" placeholder="search keywords" />
             <button class="random-meme-btn" onclick="onRandomMeme()">I'm flexible</button>
+            <datalist id="keywordsList">
+                <!--  need to render datalist options dynamically -->
+            </datalist>
         </div>
         <div class="imgs-container"></div>
         <!-- add images and set up onclick event to send them to canvas -->
@@ -96,6 +100,7 @@
     <section class="saved-view" style="display:none">
         <div class="imgs-container saved"></div>
     </section>
+
     <footer>by Mark.D</footer>
     <script src="js/service/storage.service.js"></script>
     <script src="js/service/util.service.js"></script>

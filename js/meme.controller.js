@@ -6,23 +6,26 @@ function oninit() {
     renderGallery()
 }
 
-function showGallery() {
+function showGallery(elBtn) {
     document.querySelector('.gallery-view').style.display = 'inline'
     document.querySelector('.editor-view').style.display = 'none'
     document.querySelector('.saved-view').style.display = 'none'
+    resetButtons(elBtn)
 }
 
-function showEditor() {
+function showEditor(elBtn) {
     document.querySelector('.gallery-view').style.display = 'none'
     document.querySelector('.editor-view').style.display = 'flex'
     document.querySelector('.saved-view').style.display = 'none'
+    resetButtons(elBtn)
 }
 
-function showSaved() {
+function showSaved(elBtn) {
     document.querySelector('.gallery-view').style.display = 'none'
     document.querySelector('.editor-view').style.display = 'none'
     document.querySelector('.saved-view').style.display = 'inline'
     renderSavedMemes()
+    resetButtons(elBtn)
 }
 
 function renderMeme() {
@@ -125,6 +128,12 @@ function onMoveLine(dir) {
 function onSaveMeme() {
     const meme = getMeme()
     saveMeme(meme)
+
+    const saveTooltip = document.querySelector('.tooltip')
+    saveTooltip.style.visibility = 'visible'
+    setTimeout(() => {
+        saveTooltip.style.visibility = 'hidden'
+    }, 1500)
 }
 
 function clickOnSaved(idx) {
@@ -137,3 +146,20 @@ function clickOnRemove(idx) {
     removeSavedMeme(idx)
     renderSavedMemes()
 }
+
+function resetButtons(elBtn) {
+
+    document.querySelectorAll('.header-btn').forEach(btn => {
+        btn.classList.remove('active')
+    })
+
+    if (!elBtn) {
+        document.querySelector('.editor-btn').classList.add('active')
+        return
+    }
+
+    elBtn.classList.add('active')
+}
+
+
+
