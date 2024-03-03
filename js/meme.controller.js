@@ -5,6 +5,7 @@ function oninit() {
     renderMeme()
     renderGallery()
     renderEmojiField()
+
 }
 
 function showGallery(elBtn) {
@@ -12,6 +13,7 @@ function showGallery(elBtn) {
     document.querySelector('.editor-view').style.display = 'none'
     document.querySelector('.saved-view').style.display = 'none'
     resetButtons(elBtn)
+    renderGallery()
 }
 
 function showEditor(elBtn) {
@@ -181,3 +183,28 @@ function onEmojiClick(emoji) {
     updateUI()
 }
 
+function onUploadImg(ev) {
+    return
+    //this doesn't work :(
+    loadImageFromInput(ev, renderImg)
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    const reader = new FileReader()
+
+    reader.onload = ev => {
+        let img = new Image()
+        img.src = ev.target.result
+        img.onload = () => onImageReady(img)
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
+
+function renderImg(img) {
+    const gElCanvas = document.querySelector('canvas')
+    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+
+    resetMeme()
+    // renderMeme()
+    // showText()
+}

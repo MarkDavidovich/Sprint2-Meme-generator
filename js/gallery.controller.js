@@ -6,11 +6,15 @@ function renderGallery() {
     const keywordsDatalist = document.getElementById('keywords')
 
     const searchTerm = searchField.value.toLowerCase()
+    const searchTermsArray = searchTerm.split(' ')
 
     const uniqueKeywords = new Set()
 
     const filteredImgs = gImgs.filter(img => {
-        const includesTerm = img.keywords.some(keyword => keyword.includes(searchTerm))
+        const includesTerm = searchTermsArray.every(term => {
+            return img.keywords.some(keyword => keyword.includes(term))
+        })
+
         if (includesTerm) {
             img.keywords.forEach(keyword => uniqueKeywords.add(keyword))
         }
@@ -25,6 +29,19 @@ function renderGallery() {
     elGallery.innerHTML = strHTML
 
     keywordsDatalist.innerHTML = [...uniqueKeywords].map(keyword => `<option value="${keyword}">`).join('')
+
+    renderKeywords([...uniqueKeywords])
+}
+
+function renderKeywords(keywords) {
+    const elKeywords = document.querySelector('.keyword-tags')
+    let strHTML = ''
+
+    keywords.forEach(keyword => {
+        const fontSize = getKeywordPopularity()[keyword] * 5 || 10
+        strHTML += `<span class="keyword" style="font-size: ${fontSize}px;" onclick="onKeywordClick('${keyword}')">${keyword} </span>`
+    })
+    elKeywords.innerHTML = strHTML
 }
 
 function onImgSelect(id) {
@@ -34,9 +51,6 @@ function onImgSelect(id) {
 }
 
 function onSearchChange() {
-    // const searchField = document.querySelector('.search-field')
-    // searchField.value.trim()
-
     renderGallery()
 }
 
@@ -49,5 +63,11 @@ function onRandomMeme() {
 function onClearFilter() {
     const searchField = document.querySelector('.search-field')
     searchField.value = ''
+    renderGallery()
+}
+
+function onKeywordClick(keyword) {
+    increaseWordSize(keyword)
+    setSearchValue(keyword)
     renderGallery()
 }

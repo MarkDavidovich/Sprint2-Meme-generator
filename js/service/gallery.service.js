@@ -20,7 +20,7 @@ var gImgs = [
 
 var gFilteredImgs = gImgs.slice()
 
-var gKeywordSearchCountMap = { 'sleepy': 5, 'tired': 3, 'angry': 2, 'small': 4 }
+var gKeywordSearchCountMap = { 'tired': 6, 'sleepy': 3, 'angry': 2, 'small': 4, 'fighting': 6 }
 
 
 function imgChange(id) {
@@ -55,4 +55,19 @@ function getRandomSentence() {
     ]
 
     return sentences[Math.floor(Math.random() * sentences.length)]
+}
+
+
+function increaseWordSize(keyword) {
+    gKeywordSearchCountMap[keyword] = (gKeywordSearchCountMap[keyword] || 0) + 1
+}
+
+function getKeywordPopularity() {
+    return gKeywordSearchCountMap
+}
+
+function setSearchValue(value) {
+    const elSearchField = document.querySelector('.search-field')
+    elSearchField.value += value;
+    if (elSearchField) elSearchField.value += ' '
 }

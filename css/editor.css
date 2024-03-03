@@ -73,6 +73,7 @@ label {
     width: 60px;
 }
 
+.panel-btn:hover,
 button:hover,
 label:hover {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.7)
@@ -107,14 +108,15 @@ canvas {
 
 }
 
+.share-btns,
 .line-settings,
 .text-settings {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
-    max-width: max-content;
 }
+
 
 .input-field {
     /* display: flex;

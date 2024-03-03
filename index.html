@@ -72,9 +72,10 @@
                             alt="text align center" /></button>
                     <button class="panel-btn" onclick="onTextAlign('right')"><img src="img/icons/align-right.png"
                             alt="text align right" /></button>
-                    <label for="color-picker"><img src="img/icons/color-picker.png" /> </label>
+                    <label for="color-picker"><img src="img/icons/color-picker.png" alt="color picker" /> </label>
                     <input type="color" class="panel-btn color-picker" id="color-picker"
-                        src="img/icons/color-picker.png" value="#ffffff" onchange="onColorChange(event)" />
+                        src="img/icons/color-picker.png" value="#ffffff" onchange="onColorChange(event)"
+                        style="display:none;" />
             </div>
             <div class="emoji-panel">
                 <button onclick="scrollEmojis('left')"><img src="img/icons/move-left.png"></button>
@@ -83,9 +84,15 @@
                 <button onclick="scrollEmojis('right')"><img src="img/icons/move-right.png"></button>
             </div>
             <div class="share-btns">
-                <a class="panel-btn" href="#" onclick="onDownloadMeme(this)"> <img src="img/icons/donwload.png" /></a>
-                <a class="panel-btn" href="#" onclick="onSaveMeme()"> <img src="img/icons/save.png" /></a>
+                <a class="panel-btn download-btn" href="#" onclick="onDownloadMeme(this)"> <img
+                        src="img/icons/donwload.png" alt="download meme" /></a>
+                <a class="panel-btn save-btn" href="#" onclick="onSaveMeme()"> <img src="img/icons/save.png"
+                        alt="save meme" /></a>
                 <div class="tooltip">Meme saved!</div>
+                <label class="panel-btn upload-btn" for="img-upload"><img src="img/icons/upload.png"
+                        alt="upload image" /></label>
+                <input type="file" id="img-upload" onchange="onUploadImg(event)" accept="image/*"
+                    style="display:none;" />
             </div>
             <!-- more buttons -->
         </div>
@@ -99,6 +106,8 @@
             </datalist>
             <button class="clear-filter-btn" onclick="onClearFilter()"><img src="img/icons/clear-search.png" /></button>
             <button class="random-meme-btn" onclick="onRandomMeme()"><img src="img/icons/shuffle.png" /></button>
+        </div>
+        <div class="keyword-tags">
         </div>
         <div class="imgs-container"></div>
     </section>

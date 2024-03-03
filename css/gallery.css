@@ -38,14 +38,16 @@
     border: 2px inset #333;
 }
 
-/* .random-meme-btn {
-    background-color: var(--secondary-bg-color);
-    color: whitesmoke;
-    padding: 8px 16px;
-    margin: 0 5px;
-    border: none;
-    cursor: pointer;
-} */
+.keyword-tags {
+    margin-top: 1.2em;
+    display: flex;
+    place-content: center;
+    gap: 10px;
+}
+
+.keyword {
+    cursor: pointer
+}
 
 
 @media (max-width : 740px) {

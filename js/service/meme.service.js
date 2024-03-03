@@ -355,3 +355,14 @@ function onMouseUp() {
 function onTouchEnd() {
     gIsDragging = false
 }
+
+function resetMeme(img) {
+
+    const meme = getMeme()
+    meme.selectedImgId = null
+
+    if (img) {
+        meme.selectedImgId = 'uploaded'
+        renderMeme(img)
+    }
+}
