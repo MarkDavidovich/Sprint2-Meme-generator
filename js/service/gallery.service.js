@@ -20,6 +20,9 @@ var gImgs = [
 
 var gFilteredImgs = gImgs.slice()
 
+var gKeywordSearchCountMap = { 'sleepy': 5, 'tired': 3, 'angry': 2, 'small': 4 }
+
+
 function imgChange(id) {
     gMeme.selectedImgId = id
 }

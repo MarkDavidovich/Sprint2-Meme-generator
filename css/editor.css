@@ -165,6 +165,7 @@ canvas {
     transform: translateX(-50%);
 }
 
+
 footer {
     position: fixed;
     background-color: var(--secondary-bg-color);

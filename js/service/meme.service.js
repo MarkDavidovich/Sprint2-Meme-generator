@@ -9,8 +9,6 @@ var gMeme = {
     lines: []
 }
 
-var gKeywordSearchCountMap = { 'funny': 0, 'tired': 0, 'angry': 0 }
-
 function getCanvas() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')

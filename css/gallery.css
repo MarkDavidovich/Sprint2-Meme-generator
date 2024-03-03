@@ -27,6 +27,8 @@
 .search-elements {
     margin-top: 1em;
     margin-inline: 2em;
+    display: flex;
+    gap: 10px;
 }
 
 .search-field {
@@ -36,14 +38,14 @@
     border: 2px inset #333;
 }
 
-.random-meme-btn {
+/* .random-meme-btn {
     background-color: var(--secondary-bg-color);
     color: whitesmoke;
     padding: 8px 16px;
     margin: 0 5px;
     border: none;
     cursor: pointer;
-}
+} */
 
 
 @media (max-width : 740px) {

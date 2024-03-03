@@ -76,6 +76,12 @@
                     <input type="color" class="panel-btn color-picker" id="color-picker"
                         src="img/icons/color-picker.png" value="#ffffff" onchange="onColorChange(event)" />
             </div>
+            <div class="emoji-panel">
+                <button onclick="scrollEmojis('left')">LEFT</button>
+                <div class="emoji-container">
+                </div>
+                <button onclick="scrollEmojis('right')">RIGHT</button>
+            </div>
             <div class="share-btns">
                 <a class="panel-btn" href="#" onclick="onDownloadMeme(this)"> <img src="img/icons/donwload.png" /></a>
                 <a class="panel-btn" href="#" onclick="onSaveMeme()"> <img src="img/icons/save.png" /></a>
@@ -87,14 +93,14 @@
 
     <section class="gallery-view" style="display:none">
         <div class="search-elements">
-            <input type="text" class="search-field" oninput="onSearchChange()" placeholder="search keywords" />
-            <button class="random-meme-btn" onclick="onRandomMeme()">I'm flexible</button>
-            <datalist id="keywordsList">
-                <!--  need to render datalist options dynamically -->
+            <input list="keywords" type="text" class="search-field" oninput="onSearchChange()"
+                placeholder="search keywords" />
+            <datalist id="keywords">
             </datalist>
+            <button class="clear-filter-btn" onclick="onClearFilter()"><img src="img/icons/clear-search.png" /></button>
+            <button class="random-meme-btn" onclick="onRandomMeme()"><img src="img/icons/shuffle.png" /></button>
         </div>
         <div class="imgs-container"></div>
-        <!-- add images and set up onclick event to send them to canvas -->
     </section>
 
     <section class="saved-view" style="display:none">
