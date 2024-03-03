@@ -4,6 +4,7 @@ function oninit() {
     getCanvas()
     renderMeme()
     renderGallery()
+    renderEmojiField()
 }
 
 function showGallery(elBtn) {
@@ -106,8 +107,8 @@ function onRemoveLine() {
 function onFontChange() {
     const elFont = document.querySelector('.font-select')
     const selectedFont = elFont.value
-    fontChange(selectedFont)
 
+    fontChange(selectedFont)
     showText()
     renderMeme()
 }
@@ -161,5 +162,21 @@ function resetButtons(elBtn) {
     elBtn.classList.add('active')
 }
 
+function renderEmojiField() {
+    const emojiContainer = document.querySelector('.emoji-container')
+    const emojis = getEmojis()
+    let strHTML = ''
 
+    emojis.forEach(emoji => {
+        strHTML += `<div class="emoji-item" onclick="onEmojiClick('${emoji}')">${emoji}</div>`
+    })
 
+    emojiContainer.innerHTML = strHTML
+}
+
+function onEmojiClick(emoji) {
+    addEmojiLine(emoji)
+    showText()
+    renderMeme()
+    updateUI()
+}

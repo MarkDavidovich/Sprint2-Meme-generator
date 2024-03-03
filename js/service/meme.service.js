@@ -8,6 +8,7 @@ var gMeme = {
     selectedLineIdx: null,
     lines: []
 }
+const gEmojis = ['⭐', '❤️', '💕', '💖', '😍', '🎶', '🔥', '💗', '💢', '💤', '💫']
 
 function getCanvas() {
     gCanvas = document.querySelector('canvas')
@@ -236,3 +237,24 @@ function removeSavedMeme(imgId) {
     saveToStorage(MEME_KEY, savedMemes)
 }
 
+function getEmojis() {
+    return gEmojis
+}
+
+function scrollEmojis(dir) {
+    const emojiContainer = document.querySelector('.emoji-container')
+    const scrollAmount = 60
+
+    if (dir === 'left') {
+        emojiContainer.scrollLeft -= scrollAmount
+    } else {
+        emojiContainer.scrollLeft += scrollAmount
+    }
+}
+
+function addEmojiLine(emoji) {
+    const selectedLine = getSelectedLine()
+    if (selectedLine) {
+        selectedLine.txt += emoji
+    }
+}
