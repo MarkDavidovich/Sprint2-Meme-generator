@@ -28,7 +28,7 @@ nav {
 
 .header-btn {
     background-color: rgb(72, 74, 156);
-    color: white;
+    color: whitesmoke;
     padding: 8px 16px;
     margin: 0 5px;
     border: none;
@@ -54,9 +54,18 @@ button {
     cursor: pointer;
 }
 
-.color-picker {
+#color-picker {
+    visibility: hidden;
+}
+
+label {
+    display: block;
     height: 60px;
     width: 60px;
+}
+
+label:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7)
 }
 
 .font-select {
@@ -64,6 +73,7 @@ button {
     padding: 1.1em;
     border: 2px inset #333;
     align-self: center;
+    /* width: 150px; */
 }
 
 .editor-view {

@@ -70,8 +70,9 @@
                         alt="text align center" /></button>
                 <button class="panel-btn" onclick="onTextAlign('right')"><img src="img/icons/align-right.png"
                         alt="text align right" /></button>
-                <input type="color" class="panel-btn color-picker" src="img/icons/color-picker.png" value="#ffffff"
-                    onchange="onColorChange(event)" />
+                <label for="color-picker"><img src="img/icons/color-picker.png" /> </label>
+                <input type="color" class="panel-btn color-picker" id="color-picker" src="img/icons/color-picker.png"
+                    value="#ffffff" onchange="onColorChange(event)" />
             </div>
             <div class="share-btns">
                 <a class="panel-btn" href="#" onclick="onDownloadMeme(this)"> <img src="img/icons/donwload.png" /></a>
