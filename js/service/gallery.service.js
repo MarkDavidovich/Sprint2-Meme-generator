@@ -40,7 +40,6 @@ function getRandomMeme() {
         width: 0,
         align: 'left',
     }]
-
 }
 
 function getRandomSentence() {

@@ -1,5 +1,5 @@
 'use strict'
-
+const MEME = 'savedMeme'
 let gCanvas
 let gCtx
 let gIdx = 0
@@ -17,6 +17,8 @@ function getCanvas() {
     gCtx = gCanvas.getContext('2d')
 
     gCanvas.addEventListener('click', onCanvasClick)
+
+    addLine()
 }
 
 function getMeme() {
@@ -87,7 +89,7 @@ function adjustFontSize(delta) {
 
 function addLine() {
     const newLine = {
-        txt: '',
+        txt: 'enter text',
         size: 50,
         color: '#ffffff',
         x: 30,
@@ -213,4 +215,18 @@ function moveLine(dir) {
         const moveLineBy = 20 * dir
         selectedLine.y += moveLineBy
     }
+}
+
+function saveMeme() {
+    const savedMemes = loadFromStorage(MEME) || [];
+    savedMemes.push(gMeme);
+    saveToStorage(MEME, savedMemes);
+}
+
+function renderSavedMemes() {
+    const savedMemes = JSON.parse(localStorage.getItem('savedMemes')) || [];
+
+    savedMemes.forEach((savedMeme, index) => {
+
+    })
 }
