@@ -3,6 +3,10 @@ const MEME_KEY = 'savedMeme'
 let gCanvas
 let gCtx
 
+let gIsDragging = false
+let gDragStartX
+let gDragStartY
+
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: null,
@@ -15,6 +19,14 @@ function getCanvas() {
     gCtx = gCanvas.getContext('2d')
 
     gCanvas.addEventListener('click', onCanvasClick)
+
+    gCanvas.addEventListener('mousedown', onMouseDown)
+    gCanvas.addEventListener('mousemove', onMouseMove)
+    gCanvas.addEventListener('mouseup', onMouseUp)
+
+    gCanvas.addEventListener('touchstart', onTouchStart)
+    gCanvas.addEventListener('touchmove', onTouchMove)
+    gCanvas.addEventListener('touchend', onTouchEnd)
 
     addLine()
 }
@@ -257,4 +269,89 @@ function addEmojiLine(emoji) {
     if (selectedLine) {
         selectedLine.txt += emoji
     }
+}
+
+//NEED TO CONSIDER MVC STRUCTURE
+
+function onMouseDown(event) {
+    event.preventDefault()
+    const mouseX = event.clientX - gCanvas.offsetLeft
+    const mouseY = event.clientY - gCanvas.offsetTop
+    handleLineDragStart(mouseX, mouseY)
+}
+
+function onTouchStart(event) {
+    event.preventDefault()
+    const touch = event.touches[0]
+    const touchX = touch.clientX - gCanvas.offsetLeft
+    const touchY = touch.clientY - gCanvas.offsetTop
+    handleLineDragStart(touchX, touchY)
+}
+
+function handleLineDragStart(startX, startY) {
+    const selectedLine = getSelectedLine()
+    if (selectedLine) {
+        const textWidth = gCtx.measureText(selectedLine.txt).width
+
+        let lineX;
+        if (selectedLine.align === 'left') {
+            lineX = selectedLine.x
+        } else if (selectedLine.align === 'right') {
+            lineX = selectedLine.x - textWidth
+        } else {
+            lineX = selectedLine.x - textWidth / 2
+        }
+
+        if (
+            startX >= lineX &&
+            startX <= lineX + textWidth &&
+            startY >= selectedLine.y - selectedLine.size &&
+            startY <= selectedLine.y
+        ) {
+            gIsDragging = true
+            gDragStartX = startX
+            gDragStartY = startY
+        }
+    }
+}
+
+function onMouseMove(event) {
+    if (gIsDragging) {
+        const mouseX = event.clientX - gCanvas.offsetLeft
+        const mouseY = event.clientY - gCanvas.offsetTop
+        handleLineDrag(mouseX, mouseY)
+    }
+}
+
+function onTouchMove(event) {
+    if (gIsDragging) {
+        const touch = event.touches[0]
+        const touchX = touch.clientX - gCanvas.offsetLeft
+        const touchY = touch.clientY - gCanvas.offsetTop
+        handleLineDrag(touchX, touchY)
+    }
+}
+
+function handleLineDrag(dragX, dragY) {
+    const selectedLine = getSelectedLine()
+    if (selectedLine) {
+        const deltaX = dragX - gDragStartX
+        const deltaY = dragY - gDragStartY
+
+        selectedLine.x += deltaX
+        selectedLine.y += deltaY
+
+        gDragStartX = dragX
+        gDragStartY = dragY
+
+        renderMeme()
+    }
+}
+
+function onMouseUp() {
+    gIsDragging = false
+}
+
+function onTouchEnd() {
+    gIsDragging = false
 }

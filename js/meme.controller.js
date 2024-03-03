@@ -180,3 +180,4 @@ function onEmojiClick(emoji) {
     renderMeme()
     updateUI()
 }
+

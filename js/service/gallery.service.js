@@ -46,11 +46,13 @@ function getRandomMeme() {
 }
 
 function getRandomSentence() {
-    const sentences = ['don\'t laugh, you\'re next',
+    const sentences = [
+        'don\'t laugh, you\'re next',
         'when there are no treats left',
         'stay negative',
         'when you shake the treat bag',
-        'my cat at 5 AM']
+        'my cat at 5 AM',
+    ]
 
     return sentences[Math.floor(Math.random() * sentences.length)]
 }
