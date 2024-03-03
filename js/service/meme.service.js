@@ -86,7 +86,7 @@ function downloadMeme(elLink) {
     const dataUrl = gCanvas.toDataURL()
 
     elLink.href = dataUrl
-    elLink.download = 'dank-meme'
+    elLink.download = 'cat-meme'
 }
 
 function adjustFontSize(delta) {
