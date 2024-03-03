@@ -49,12 +49,7 @@
                     <img src="img/icons/move-down.png" alt="move line down" />
                 </button>
             </div>
-            <div class="text-settings">
-                <button class="panel-btn" onclick="onAdjustFontSize(3)">
-                    <img src="img/icons/font-size+.png" alt="increase font size" />
-                </button>
-                <button class="panel-btn" onclick="onAdjustFontSize(-3)">
-                    <img src="img/icons/font-size-.png" alt="decrease font size" />
+            <div>
                 </button>
                 <select class="font-select" onchange="onFontChange()">
                     <option value="Impact">Impact</option>
@@ -62,17 +57,24 @@
                     <option value="Times New Roman">Times New Roman</option>
                     <option value="Georgia">Georgia</option>
                     <!-- <option value="font4">font4</option>
-                    <option value="font5">font5</option> -->
+                <option value="font5">font5</option> -->
                 </select>
-                <button class="panel-btn" onclick="onTextAlign('left')"><img src="img/icons/align-left.png"
-                        alt="text align left" /></button>
-                <button class="panel-btn" onclick="onTextAlign('center')"><img src="img/icons/align-center.png"
-                        alt="text align center" /></button>
-                <button class="panel-btn" onclick="onTextAlign('right')"><img src="img/icons/align-right.png"
-                        alt="text align right" /></button>
-                <label for="color-picker"><img src="img/icons/color-picker.png" /> </label>
-                <input type="color" class="panel-btn color-picker" id="color-picker" src="img/icons/color-picker.png"
-                    value="#ffffff" onchange="onColorChange(event)" />
+            </div>
+            <div class="text-settings">
+                <button class="panel-btn" onclick="onAdjustFontSize(3)">
+                    <img src="img/icons/font-size+.png" alt="increase font size" />
+                </button>
+                <button class="panel-btn" onclick="onAdjustFontSize(-3)">
+                    <img src="img/icons/font-size-.png" alt="decrease font size" />
+                    <button class="panel-btn" onclick="onTextAlign('left')"><img src="img/icons/align-left.png"
+                            alt="text align left" /></button>
+                    <button class="panel-btn" onclick="onTextAlign('center')"><img src="img/icons/align-center.png"
+                            alt="text align center" /></button>
+                    <button class="panel-btn" onclick="onTextAlign('right')"><img src="img/icons/align-right.png"
+                            alt="text align right" /></button>
+                    <label for="color-picker"><img src="img/icons/color-picker.png" /> </label>
+                    <input type="color" class="panel-btn color-picker" id="color-picker"
+                        src="img/icons/color-picker.png" value="#ffffff" onchange="onColorChange(event)" />
             </div>
             <div class="share-btns">
                 <a class="panel-btn" href="#" onclick="onDownloadMeme(this)"> <img src="img/icons/donwload.png" /></a>
