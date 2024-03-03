@@ -42,6 +42,7 @@
     margin-top: 1.2em;
     display: flex;
     place-content: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
